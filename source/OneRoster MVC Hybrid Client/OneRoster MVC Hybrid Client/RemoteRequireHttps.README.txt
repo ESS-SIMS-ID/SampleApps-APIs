@@ -1,0 +1,1 @@
+Add [RemoteRequireHttps] to your controller methods to require connections over HTTPS except when debugging locally.

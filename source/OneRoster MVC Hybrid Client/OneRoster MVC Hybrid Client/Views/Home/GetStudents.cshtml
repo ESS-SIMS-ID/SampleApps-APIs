@@ -1,0 +1,13 @@
+﻿@model OneRoster_MVC_Hybrid_Client.Models.StudentsModel
+@{
+    ViewBag.Title = "Get Students";
+}
+
+<h2>Get Students</h2>
+
+<div class="alert alert-info">
+    <p>Sample Student Data from the Student OneRoster Endpoint is shown below</p>
+</div>
+
+
+<pre class="prettyprint">@Html.Raw(Json.Encode(Model.Students))</pre>

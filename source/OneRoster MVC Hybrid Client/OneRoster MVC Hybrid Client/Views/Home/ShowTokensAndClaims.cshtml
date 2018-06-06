@@ -1,0 +1,53 @@
+﻿@model OneRoster_MVC_Hybrid_Client.Models.ShowTokensAndClaimsModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tokens</h2>
+
+@if (Model != null)
+{
+    <div class="col-md-12">
+        <div class="container sims-id-user-tokens">
+            <h1 class="page-header">Access Token</h1>
+            <p><strong>Raw:</strong> @Model.AccessTokenRaw</p>
+            <table class="table table-striped table-bordered table-hover" style="table-layout: fixed; word-wrap: break-word">
+                <thead>
+                    <tr>
+                        <th>Token Claim Type</th>
+                        <th>Token Claim Value</th>
+                    </tr>
+                </thead>
+
+                @foreach (var claim in Model.AccessToken.Claims.ToList())
+                {
+                    <tr>
+                        <td>@claim.Type</td>
+                        <td>@claim.Value</td>
+                    </tr>
+                }
+            </table>
+
+            <h1 class="page-header">ID Token</h1>
+            <p><strong>Raw:</strong> @Model.IdTokenRaw</p>
+            <table class="table table-striped table-bordered table-hover" style="table-layout: fixed; word-wrap: break-word">
+                <thead>
+                    <tr>
+                        <th>Token Claim Type</th>
+                        <th>Token Claim Value</th>
+                    </tr>
+                </thead>
+
+                @foreach (var claim in Model.IdToken.Claims.ToList())
+                {
+                    <tr>
+                        <td>@claim.Type</td>
+                        <td>@claim.Value</td>
+                    </tr>
+                }
+            </table>
+
+
+        </div>
+    </div>
+}
